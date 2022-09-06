@@ -1,22 +1,20 @@
-function CustomObject (a, b) {
-    this.a = a;
-    this.b = b;
+function CustomObject (x, y) {
+    this.a = x;
+    this.b = y;
 }
 
 function printObjProp(obj, bool=false){
     if(bool==false){
        let result='';
         for(let i in obj){
-            if (obj.hasOwnProperty(i)) {
-            result += obj.i;
-          }
+            result += i + ' ';
         }
         console.log(result); 
     }else{
         let result='';
         for(let i in obj){
-            if (obj.prototype.hasOwnProperty(i) ) {
-            result += obj.i;
+            if (obj.hasOwnProperty(i) ) {
+            result += i + ' ';
           }
         }
         console.log(result); 
@@ -25,4 +23,4 @@ function printObjProp(obj, bool=false){
 
 CustomObject.prototype.c = function () { return this.a + this.b; };
 var obj = new CustomObject (1, 2);
-printObjProp (obj,true); // output: a, b, c
+printObjProp (obj, true); // output: a, b, c
