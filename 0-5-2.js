@@ -1,20 +1,29 @@
 let Building = {
     equipment:[],
     users:[],
-    search(string){
-        for(let i in this.equipment){
-            if(this.equipment[i].Name==string){
-                return this.equipment[i];
-            }else{
-                for(let j in this.users){
-                    if(this.users[i].Name==string){
-                        return this.users[i];
-                    }
+}
+
+function search(string, memo){
+    memo=memo || {};
+    if(memo[string] != undefined){ 
+         return memo[string]
+    } else{ 
+    for(let i in Building.equipment){
+        if(Building.equipment[i].Name==string){
+            memo[string]= Building.equipment[i];
+            return Building.equipment[i];
+        }else{
+            for(let j in Building.users){
+                if(Building.users[j].Name==string){
+                    memo[string]=Building.users[j];
+                    return Building.users[j];
                 }
             }
         }
     }
+    }
 }
+
 function addEquipment(equipment){
     Building.equipment.push(equipment);
 }
@@ -23,25 +32,26 @@ function addPeople(person){
 }
 
 class Equipment{
-    constructor(name,room, people, floor){
+    constructor(name,floor,room, people){
         this.Name=name;
         this.Room=room;
-        this.Person=people;
         this.Floor=floor;
+        this.Person=people;
         addEquipment(this);
     }
 
 }
 class Person{
-    constructor(name,floor){
+    constructor(name,floor, room){
         this.Name = name;
         this.Floor=floor;
+        this.Room=room;
         addPeople(this);
     }
 }
 
-let Potato = new Equipment('Potato','7-a','Pedro',2);
-let Aby = new Person('Aby', 5);
-console.log(Building);
-let searched=Building.search('Aby');
+let Potato = new Equipment('Potato',2,'2-a','Pedro');
+let Aby = new Person('Aby', 5, '5-b');
+let Pedro = new Person('Pedro', 3, '3-a')
+let searched=search('Aby');
 console.log(searched);
