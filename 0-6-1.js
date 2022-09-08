@@ -1,8 +1,8 @@
 class Shape{
-    constructor(pEdges, Edgelenght){
+    constructor(pedges, edgelenght){
         if(pEdges>=3){ 
-            this.pEdges=pEdges;
-            this.Edgelenght=Edgelenght
+            this.pEdges=pedges;
+            this.Edgelenght=edgelenght
         }else console.log('Invalid shape');
     }
     
