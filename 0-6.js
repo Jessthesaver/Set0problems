@@ -1,32 +1,32 @@
 class Shape {
     constructor(edges){
-        this.pEdges= edges;
+        this.pedges= edges;
     } 
-    fnDisplay(){
+    fndisplay(){
         return this;
     }
 }
 
 class Quadrilateral extends Shape {
-    fnArea(){
-        return this.pEdges[0]*this.pEdges[1];
+    fnarea(){
+        return this.pedges[0]*this.pedges[1];
     }
 
-    fnPerimeter(){
+    fnperimeter(){
         perimeter=0;
-        for (i in pEdges){
-            perimeter += pEdges[i];
+        for (i in pedges){
+            perimeter += pedges[i];
         }
         return perimeter;
     }
 } 
 
 class Square extends Quadrilateral {
-    fnArea(){
-        return this.pEdges[0]**2;
+    fnarea(){
+        return this.pedges[0]**2;
     }
 
-    fnPerimeter(){
+    fnperimeter(){
         return 4*pEdges[0];
     }
 }

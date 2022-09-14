@@ -2,20 +2,20 @@ let Building = {
     equipment:[],
     users:[],
 }
-
-function search(string, memo){
+let memo = {};
+function search(searched){
     memo=memo || {};
-    if(memo[string] != undefined){ 
-         return memo[string]
+    if(memo[searched] != undefined){ 
+         return memo[searched]
     } else{ 
     for(let i in Building.equipment){
-        if(Building.equipment[i].Name==string){
-            memo[string]= Building.equipment[i];
+        if(Building.equipment[i].Name==searched){
+            memo[searched]= Building.equipment[i];
             return Building.equipment[i];
         }else{
             for(let j in Building.users){
-                if(Building.users[j].Name==string){
-                    memo[string]=Building.users[j];
+                if(Building.users[j].Name==searched){
+                    memo[searched]=Building.users[j];
                     return Building.users[j];
                 }
             }
