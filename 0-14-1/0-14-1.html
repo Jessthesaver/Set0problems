@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="0-14-1.css">
+    <title>Problem 1 chapter 14</title>
+</head>
+<body>
+    <p>Welcome to this wonderful application</p>
+    <form>
+        <label for="widthval">Enter your width value:</label><br>
+        <input type="number" id="widthval" name="widthval" value="0" onchange="formChanged()" onkeyup="formChanged()"><br>
+        <label for="heightval">Enter your height value:</label><br>
+        <input type="number" id="heightval" name="heightval" value="0" onchange="formChanged()" onkeyup="formChanged()"><br>
+    </form> 
+    <div id="wrapper"></div>
+
+    <script> 
+        function gridGenerator(widthval, heightval){
+            var wrapper = document.getElementById("wrapper");
+            wrapper.innerHTML = '';
+            console.log(widthval);
+            wrapper.style.width = `${(widthval*110)}px`
+
+            for(var i=0; i < widthval * heightval; i++){
+                var newDiv = document.createElement('div');
+                newDiv.className = 'box box1';
+                newDiv.innerHTML = '<input type="text" style="width:100px">';
+                newDiv.width = "100px";
+                wrapper.appendChild(newDiv);
+            }
+        }
+        function formChanged() {
+            var widthval = document.getElementsByName("widthval")[0].value;
+            var heightval = document.getElementsByName("heightval")[0].value;
+            return gridGenerator(Number(widthval), Number(heightval));
+        }
+    </script>
+</body>
+</html>
