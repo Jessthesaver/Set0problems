@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem 2 chapter 14</title>
+</head>
+<body>
+    <p>Select the number of columns</p>
+    <input type="radio" id="2col" name="Columns" value="2" onchange="formChanged()" onkeyup="formChanged()">
+    <label for="2col">2 columns</label><br>
+    <input type="radio" id="3col" name="Columns" value="3" onchange="formChanged()" onkeyup="formChanged()">
+    <label for="4col">3 columns</label><br>
+    <input type="radio" id="4col" name="Columns" value="4" onchange="formChanged()" onkeyup="formChanged()">
+    <label for="8col">4 columns</label><br>
+    
+    <p id="bigtext">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor blanditiis aspernatur soluta necessitatibus quas odio placeat adipisci? Voluptatibus autem impedit dolores eos, vitae exercitationem beatae, inventore, voluptatem neque quos dicta perferendis incidunt! Autem accusantium nulla quisquam at aliquam aspernatur repellendus nesciunt sapiente minima non enim omnis provident voluptatibus, quos eaque laudantium, optio deleniti quas. Doloribus cupiditate esse debitis modi. Eius aperiam voluptas at fuga ab rem vel nisi odit commodi quis a molestiae omnis quas amet quod, accusantium, repellat dicta ea necessitatibus ratione impedit, reiciendis sint. Pariatur debitis voluptate, saepe cum odio enim dolores alias asperiores eius eaque. Voluptatum, totam?</p>
+    
+
+    
+    <script> 
+        function formChanged(){
+            var numbcolumns = document.querySelector('input[name="Columns"]:checked').value;
+            var bigtext= document.getElementById('bigtext');
+            bigtext.style.columnCount= numbcolumns;
+        }
+    </script>
+            
+</body>
+</html>
