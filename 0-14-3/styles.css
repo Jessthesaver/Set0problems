@@ -1,0 +1,34 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+body{
+    background-color: bisque;
+}
+.setimgtext{
+    padding: 5px;
+    display: flex;
+    flex-flow: row wrap;
+    background-color: beige;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+image{
+    padding: 5px;
+}
+
+.justtext{
+    padding: 5px;
+    width: 50%;
+    flex-direction: column;
+}
+
+p{
+    width: 50%;
+}
+
+.secondtemplateimg{
+    float: left;
+    margin: 5px;
+}
