@@ -1,0 +1,8 @@
+body{
+    background-color: lightsteelblue;
+}
+
+#wrapper{
+    display: flex;
+    flex-flow: row wrap;
+}

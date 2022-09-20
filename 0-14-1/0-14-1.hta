@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <HTA: APPLICATION APPLICATIONNAME= "My App" SYSMENU= "yes">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="0-14-1.css">
+    <title>Problem 1 chapter 14</title>
+    <script language="javascript" type="text/javascript">
+        window.resizeTo(640,480);
+    </script>
+</head>
+<body>
+    <p>Welcome to this wonderful application</p>
+    <form action="/action_page.php">
+        <label for="widthval">Enter your with value:</label><br>
+        <input type="number" id="widthval" name="widthval" value="0"><br>
+        <label for="heightval">Enter your height value:</label><br>
+        <input type="number" id="heightval" name="heightval" value="0"><br><br>
+        <input type="submit" value="Submit">
+    </form> 
+
+    <script> formData = new FormData(document.querySelector('form'))
+        for (var pair of formData.entries()){
+             console.log(pair[0] + ': ' + pair[1]);
+        };
+    </script>
+</body>
+</html>
