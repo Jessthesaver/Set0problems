@@ -1,1 +1,35 @@
-placeholder
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="0-13.css">
+    <title>Grids experiment</title>
+    
+</head>
+<body>
+    <div id="wrapper"></div>
+
+    <script>
+      function alerted(event){
+        if (event.target.className == 'box box1') {
+          alert(this.innerHTML);
+          event.stopPropagation()
+        }
+      }
+
+      let toAdd = document.getElementById("wrapper");
+      const fragment = new DocumentFragment();
+      let newDiv = document.createElement('div');
+        newDiv.className = 'box box1'; 
+        newDiv.addEventListener('click', alerted);
+      for(let i=0; i < 25; i++){
+        let clonedDiv=newDiv.cloneNode(true);
+        clonedDiv.innerHTML = `${i}`;
+        fragment.appendChild(clonedDiv);
+      }
+      toAdd.appendChild(fragment);
+    </script>
+</body>
+</html>
