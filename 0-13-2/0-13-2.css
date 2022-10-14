@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    background-color: #ccc;
+}
+meter {
+    width: 500px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+#Hit {
+    width: 200px;
+    height: 100px;
+}

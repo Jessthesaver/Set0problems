@@ -1,1 +1,29 @@
-a
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="0-13-2.css">
+    <title>The 3 times button</title>
+</head>
+<body>
+    <input type="button" id="Hit" value="Press me!!!">
+    <meter id="meter" value="3" min="0" max="3"></meter>
+    <script>
+        {let count = 3;
+        function countClicks(){
+            count--;
+            document.getElementById('meter').value = count;
+            if (count<=0){
+                document.getElementById("Hit").disabled = true;
+                alert("You can only click this button 3 times !!!");
+            }
+        }
+    }
+        let newButton = document.querySelector('#Hit');
+        newButton.addEventListener('click', countClicks);
+
+    </script>
+</body>
+</html>
