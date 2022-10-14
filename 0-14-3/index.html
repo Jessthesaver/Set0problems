@@ -6,11 +6,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
-    <script type="module" src="./index.js"> </script>
     <title>Chapter 14 problem 3</title>
 </head>
 <body>
+    <div id="app"></div>
+<template>
+    <a href="#article1" data-link>
+        <div id="1" class="setimgtext">
+            <img src="tyrannomon.jpg" width=500px> <div class="justtext"> <h1> Article  1</h1> <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus odit tempora nesciunt ad, ipsum eos autem magnam voluptates culpa. Quas doloribus dicta perspiciatis ipsa consectetur quaerat odit fugiat eveniet magni.</p></div>`;
+        </div>
+    </a>
+    <a href="#article2" data-link>
+        <div id="2" class="setimgtext">
+            <img src="triceramon.webp" width=500px> <div class="justtext"> <h1> Article  2</h1> <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus odit tempora nesciunt ad, ipsum eos autem magnam voluptates culpa. Quas doloribus dicta perspiciatis ipsa consectetur quaerat odit fugiat eveniet magni.</p></div>`;
+        </div>
+    </a>
+    <a href="#article3" data-link>
+        <div id="3" class="setimgtext">
+            <img src="dinorexmon.jpg" width=500px> <div class="justtext"> <h1> Article  3</h1> <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus odit tempora nesciunt ad, ipsum eos autem magnam voluptates culpa. Quas doloribus dicta perspiciatis ipsa consectetur quaerat odit fugiat eveniet magni.</p></div>`;
+        </div>
+    </a>
+</template>
 
-  
+<template>
+    <div id="1" class="setimgtext">
+        <img src="tyrannomon.jpg" width=500px> <div class="justtext"> <h1> Article  1</h1> <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus odit tempora nesciunt ad, ipsum eos autem magnam voluptates culpa. Quas doloribus dicta perspiciatis ipsa consectetur quaerat odit fugiat eveniet magni.</p></div>`;
+        <a href="#" data-link><input type="button" value="Click to return to the first page"></a>
+    </div>   
+</template>
+<template>
+    <div id="2" class="setimgtext">
+        <img src="triceramon.webp" width=500px> <div class="justtext"> <h1> Article  2</h1> <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus odit tempora nesciunt ad, ipsum eos autem magnam voluptates culpa. Quas doloribus dicta perspiciatis ipsa consectetur quaerat odit fugiat eveniet magni.</p></div>`;
+        <a href="#" data-link><input type="button" value="Click to return to the first page"></a>
+    </div>   
+</template>
+<template>
+    <div id="3" class="setimgtext">
+        <img src="dinorexmon.jpg" width=500px> <div class="justtext"> <h1> Article  3</h1> <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus odit tempora nesciunt ad, ipsum eos autem magnam voluptates culpa. Quas doloribus dicta perspiciatis ipsa consectetur quaerat odit fugiat eveniet magni.</p></div>`;
+        <a href="#" data-link><input type="button" value="Click to return to the first page"></a>
+    </div>   
+</template>
+
+<script src="./index.js"> </script>
 </body>
 </html>

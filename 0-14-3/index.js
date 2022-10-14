@@ -1,63 +1,55 @@
-import template1 from "./template1.json" assert { type: "json" };
+const navigateTo = url => {
+    history.pushState(null, null, url);
+    router();
+};
 
-function firstload(){ 
-    document.body.innerHTML= '';
-    var firstpart= new DocumentFragment();
-    for(let i = 0 ; i< template1.length ; i++){ 
-        let a = document.createElement('a');
-        a.href= `#${i}`;
-        let div=document.createElement('div');
-        div.id=template1[i].id; 
-        div.className="setimgtext"
-        div.innerHTML= `<img src="${template1[i].img}" width=500px> <div class="justtext"> <h1> ${template1[i].title} </h1> <p> ${template1[i].text}</p></div>`;
-        div.addEventListener("click",secondload);
-        a.appendChild(div);
-        firstpart.appendChild(a);
+const router = () => {
+    const routes = [
+        { path: "#", view: 0 },
+        { path: "#article1", view: 1 },
+        { path: "#article2", view: 2},
+        { path: "#article3", view: 3 }
+    ];
+
+    const potentialMatches = routes.map(route => {
+        return {
+            route: route,
+            isMatch:location.hash===route.path
+        };
+    });
+
+    let match = potentialMatches.find(potentialMatch => potentialMatch.isMatch);
+    if (!match) {
+        match = {
+            route: routes[0],
+            isMatch: true
+        };
     }
-    document.body.appendChild(firstpart);
-}
 
-function secondload(){
-    document.body.innerHTML='';
-    var firstpart= new DocumentFragment(); 
-    let div=document.createElement('div');
-    div.id=template1[this.id].id; 
-    div.className="setimgtext"
-    div.innerHTML= `<img src="${template1[this.id].img}" width=500px> <div class="justtext"> <h1> ${template1[this.id].title} </h1> <p> ${template1[this.id].text}</p></div>`;
-    let a= document.createElement('a');
-    a.href="index.html"
-    let button=document.createElement('input');
-    button.type= "button";
-    button.value="Click to return to the first page";
-    a.appendChild(button);
-    firstpart.appendChild(div);
-    firstpart.appendChild(a);
-    document.body.appendChild(firstpart);
-}
+    const view = match.route.view;
 
-function refreshload(i){
-    document.body.innerHTML='';
-    var firstpart= new DocumentFragment(); 
-    let div=document.createElement('div');
-    div.id=template1[i].id; 
-    div.className="setimgtext"
-    div.innerHTML= `<img src="${template1[i].img}" width=500px> <div class="justtext"> <h1> ${template1[i].title} </h1> <p> ${template1[i].text}</p></div>`;
-    let a= document.createElement('a');
-    a.href="index.html"
-    let button=document.createElement('input');
-    button.type= "button";
-    button.value="Click to return to the first page";
-    a.appendChild(button);
-    firstpart.appendChild(div);
-    firstpart.appendChild(a);
-    document.body.appendChild(firstpart);
-}
-var fragment = window.location.hash;
-console.log(fragment)
-if(fragment){
-    refreshload(fragment[1]);
-}
-else{
-    firstload();
-}
+    const app=document.querySelector("#app");
+    app.innerHTML=''
+    app.appendChild(loadcontent(view))
+};
 
+window.addEventListener("popstate", router);
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.body.addEventListener("click", e => {
+        if (e.target.matches("[data-link]")) {
+            e.preventDefault();
+            navigateTo(e.target.href);
+        }
+    });
+
+    router();
+});
+
+const templates=document.querySelectorAll('template');
+
+function loadcontent(view){
+    let templatecontent=templates[view];
+    let clone = templatecontent.content.cloneNode(true);
+    return clone
+}
