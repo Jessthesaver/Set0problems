@@ -21,9 +21,11 @@
     
     <script> 
         function formChanged(){
-            var numbcolumns = document.querySelector('input[name="Columns"]:checked').value;
-            var bigtext= document.getElementById('bigtext');
+            let numbcolumns = document.querySelector('input[name="Columns"]:checked').value;
+            let bigtext= document.getElementById('bigtext');
+            bigtext.remove()
             bigtext.style.columnCount= numbcolumns;
+            document.body.appendChild(bigtext);
         }
     </script>
             
