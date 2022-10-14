@@ -19,22 +19,26 @@
 
     <script> 
         function gridGenerator(widthval, heightval){
-            var wrapper = document.getElementById("wrapper");
-            wrapper.innerHTML = '';
-            console.log(widthval);
+            let wrapper = document.getElementById("wrapper");
+            wrapper.innerHTML ='';
             wrapper.style.width = `${(widthval*110)}px`
-
-            for(var i=0; i < widthval * heightval; i++){
-                var newDiv = document.createElement('div');
-                newDiv.className = 'box box1';
-                newDiv.innerHTML = '<input type="text" style="width:100px">';
-                newDiv.width = "100px";
-                wrapper.appendChild(newDiv);
+            const fragment = new DocumentFragment();
+            let newDiv = document.createElement('div');
+            newDiv.className = 'box box1';
+            let btn = document.createElement('input');
+            btn.type='button';
+            btn.style.width ='100px';
+            newDiv.appendChild(btn);
+            newDiv.width = "100px";
+            for(let i=0; i < widthval * heightval; i++){
+                let clonedDiv=newDiv.cloneNode(true);
+                fragment.appendChild(clonedDiv);
             }
+            wrapper.appendChild(fragment);
         }
         function formChanged() {
-            var widthval = document.getElementsByName("widthval")[0].value;
-            var heightval = document.getElementsByName("heightval")[0].value;
+            let widthval = document.getElementsByName("widthval")[0].value,
+            heightval = document.getElementsByName("heightval")[0].value;
             return gridGenerator(Number(widthval), Number(heightval));
         }
     </script>
