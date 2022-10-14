@@ -2,6 +2,7 @@ let Building = {
     equipment:[],
     users:[],
 }
+{ 
 let memo = {};
 function search(searched){
     memo=memo || {};
@@ -23,7 +24,7 @@ function search(searched){
     }
     }
 }
-
+}
 function addEquipment(equipment){
     Building.equipment.push(equipment);
 }

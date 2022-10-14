@@ -1,20 +1,18 @@
 function distance(...args){
-    if(args.length==4){
-        x1=args[0];
-        y1=args[1];
-        x2=args[2];
+        var x1=args[0],
+        y1=args[1],
+        x2=args[2],
         y2=args[3];
-        return Math.sqrt(((x1-x2)**2 )+((y1-y2)**2))
+        if(args.length==4){
+            return Math.sqrt(((x1-x2)**2 )+((y1-y2)**2))
     }else if(args.length==6){
-        x1=args[0];
-        y1=args[1];
-        z1=args[2];
+        var z1=args[2],
+        z2=args[5];
         x2=args[3];
         y2=args[4];
-        z2=args[5];
         return Math.sqrt(((x1-x2)**2 )+((y1-y2)**2)+((z1-z2)**2))
     }else{
-        console.log('Invalid operation');
+        throw 'Error, number of arguments invalid';
     }
 }
 

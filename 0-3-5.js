@@ -3,8 +3,8 @@ function CustomObject (x, y) {
     this.b = y;
 }
 
-function printObjProp(obj, bool=false){
-    if(bool==false){
+function printObjProp(obj, boolean=false){
+    if(boolean==false){
        let result='';
         for(let i in obj){
             result += i + ' ';

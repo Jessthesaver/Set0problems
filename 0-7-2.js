@@ -36,17 +36,17 @@ let australiandateexpression = /^\d{4}-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01]
 
 function datevalidation(date){
     if(date.match(australiandateexpression)){
-        day= date.substring(8,10);
-        month= date.substring(5,7);
-        year=date.substring(0,4);
-        holiday=holidaymatcher(`${day}-${month}`, JAPANESEHOLIDAYS);
+        var day= date.match(/\d{2}/gm)[3]
+        var month= date.match(/\d{2}/gm)[2]
+        var year=date.match(/\d{4}/)
+        var holiday=holidaymatcher(`${day}-${month}`, JAPANESEHOLIDAYS);
         return `${day}-${month}-${year} (${holiday}) in Japan`;
     }
     if(date.match(japanesedateexpression)){
-        day= date.substring(0,2);
-        month= date.substring(3,5);
-        year=date.substring(6,10);
-        holiday=holidaymatcher(`${month}-${day}`, AUSTRALIANHOLIDAYS);
+        var day= date.match(/\d{2}/gm)[0]
+        var month= date.match(/\d{2}/gm)[1]
+        var year=date.match(/\d{4}/)
+        var holiday=holidaymatcher(`${month}-${day}`, AUSTRALIANHOLIDAYS);
         return `${year}-${month}-${day} (${holiday}) in Australia`;
     }else{
         console.log('Invalid date format');
@@ -55,4 +55,4 @@ function datevalidation(date){
 
 const holidaymatcher = (date,holidaylist) => holidaylist[date] || "Not a holiday";
 
-console.log(datevalidation('1996-02-11'));
+console.log(datevalidation('11-02-1996'));

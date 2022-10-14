@@ -1,13 +1,12 @@
 function addarray(array, i=0, j=0){
-    x=i;
-    y=j;
-    array=array;
-    if(array[x]){
-        return addarray(array,x+1,y+array[x]);
+    var position=i;
+    var accumulated=j;
+    if(typeof(array[position])=='number'){
+        return addarray(array,position+1,accumulated+array[position]);
     }else{
-        return y;
+        return accumulated;
     }
 }
 
-let arr = [ 1, 3, 5, 7];
+let arr = [ 1,2,3,4,5,6];
 console.log(addarray(arr));

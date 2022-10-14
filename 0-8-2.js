@@ -1,40 +1,47 @@
-var timers = {
+var fns = [];
 
-    timerID: 0,
-    timers: [],
+function delay(ms) { // you can set delay manually to see what happens if functions take longer to execute
+    ms += new Date().getTime();
+    while (new Date() < ms){}
+} 
 
-    add(fn) { 
-        this.timers.push(fn);
-    },
 
-    start() {
-        //if(this.timerID) return;
-        (function runNext() {
-            if(timers.timers.length > 0) {
-               for (var i = 0; i < timers.timers.length; i++) {
-                 if(timers.timers[i]() === false) {
-                   timers.timers.splice(i,1);
-                   i--;
-                 }
-              } 
-    console.log("setting timeout.");
-    timers.timerID = setTimeout(runNext, 0);
-       }
-     })();
-    },
+var one = function(d) { // first function
+    console.log('potato');
+    delay(0); // let's say our function takes approximately 100 ms to execute
+}
 
-    stop() {
-        clearTimeout(this.timerID);
-        this.timerID = 0;
+var two = function(d) { // second function
+    console.log('turnip')
+    delay(0);
+
+}
+var third = function(d){
+    console.log('nappa')
+}
+
+fns.push(one);
+fns.push(two);
+fns.push(third);
+
+var intervals = [5000, 10000, 15000];
+
+var temp = new Date;
+(function(fns, intervals) {
+var count = 0; // helpers
+(function run () {
+     // time that function takes to execute 
+    if (count === intervals.length-1) {
+        fns[count]()
+        count = 0;
+        setTimeout(run, intervals[count] ); 
+    ; // function executes here 
+    } else {
+        setTimeout(run, intervals[count] );
+        fns[count]()
+        count++; 
+     // function executes here 
     }
-};
-
-timers.add(function() {
-    console.log('First done');
-});
-
-timers.add(function() { 
-    console.log('Second done');
-});
-
-console.log("starting timer.");
+})();
+//setTimeout(run,intervals[0]) //first call to make use of the first interval
+})(fns, intervals)

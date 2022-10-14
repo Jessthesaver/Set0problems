@@ -1,13 +1,18 @@
 class CustomObject{
-    constructor(x){
-        if(typeof(x)== 'number'){
-            this.x=x;
+        #property= 7
+        set prop(value){
+            if(typeof(value)=='number'){ 
+                this.#property = value;
+            }else{
+                throw 'error'
+            }
         }
-        else{
-            return console.log('Invalid operation');
+        get prop(){
+            return this.#property;
         }
-    }
 }
 
-let a = new CustomObject(7);
-let b = new CustomObject('a');
+var obj = new CustomObject()
+obj.prop='f'
+console.log(obj.prop)
+

@@ -49,22 +49,14 @@ myLib.math.complex.sub (
 
 //using with
 let result;
-let res;
-let rest;
+let secondresult;
 with(myLib){
     with(math){
         with(real){
             result = sub(add(20,22), mul(2,5));
             
         }
-        with(matrix){
-            res = times(eye(4), with(complex){
-                sub(Num( with(real){
-                    add(5,2)
-                }), Num(3,4))
-            })
-        }
-        rest = matrix.times(matrix.eye(4),complex.sub(complex.Num(real.add(5,2),complex.Num(3,4))))
+        secondresult = matrix.times(matrix.eye(4),complex.sub(complex.Num(real.add(5,2),complex.Num(3,4))))
     }
 }
 
