@@ -11,19 +11,19 @@
     <input type="button" id="Hit" value="Press me!!!">
     <meter id="meter" value="3" min="0" max="3"></meter>
     <script>
-        {let count = 3;
-        function countClicks(){
-            count--;
-            document.getElementById('meter').value = count;
-            if (count<=0){
-                document.getElementById("Hit").disabled = true;
-                alert("You can only click this button 3 times !!!");
-            }
-        }
-    }
+        let newfn=(function(){
+            let count = 3;
+            function countClicks(){
+                count--;
+                document.getElementById('meter').value = count;
+                if (count<=0){
+                    document.getElementById("Hit").disabled = true;
+                    alert("You can only click this button 3 times !!!");
+                }
+            }return countClicks
+        })()
         let newButton = document.querySelector('#Hit');
-        newButton.addEventListener('click', countClicks);
-
+        newButton.addEventListener('click', newfn);
     </script>
 </body>
 </html>
