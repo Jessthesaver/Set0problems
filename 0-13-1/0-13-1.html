@@ -14,16 +14,16 @@
     <script>
       function alerted(event){
         if (event.target.className == 'box box1') {
-          alert(this.innerHTML);
+          alert(event.target.innerHTML);
           event.stopPropagation()
         }
       }
 
       let toAdd = document.getElementById("wrapper");
+      toAdd.addEventListener('click', alerted);
       const fragment = new DocumentFragment();
       let newDiv = document.createElement('div');
         newDiv.className = 'box box1'; 
-        newDiv.addEventListener('click', alerted);
       for(let i=0; i < 25; i++){
         let clonedDiv=newDiv.cloneNode(true);
         clonedDiv.innerHTML = `${i}`;
