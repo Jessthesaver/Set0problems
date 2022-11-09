@@ -13,25 +13,23 @@
 
     <script>
         function attributegetter(element){
-            var el=document.querySelector(element),
-            attnames=el.getAttributeNames();
-            //console.log(attnames);
-            var list =[]
+            let el=document.querySelector(element);
+            let attnames=el.getAttributeNames();
+            let list =[]
             for(i in attnames){
                 list[i] =attnames[i]+': '+ el.getAttribute(attnames[i]);
-                //console.log(el.getAttribute(i))
             }
             return list;   
         }
 
         function valuegetter(element,attribute){
-            var el= document.querySelector(element);
+            let el= document.querySelector(element);
             return el.getAttribute(attribute);
-        }
-        var el=document.querySelector("div");
-        var attnames=el.getAttributeNames();
-        var list = attributegetter("div");
-        var value= valuegetter("div", 'id');
+        };
+        let el=document.querySelector("div");
+        let attnames=el.getAttributeNames();
+        let list = attributegetter("div");
+        let value= valuegetter("div", 'id');
         console.log(list);
         console.log(value);
         
