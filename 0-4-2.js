@@ -1,6 +1,4 @@
-function addarray(array, i=0, j=0){
-    var position=i;
-    var accumulated=j;
+function addarray(array, position=0, accumulated=0){
     if(typeof(array[position])=='number'){
         return addarray(array,position+1,accumulated+array[position]);
     }else{

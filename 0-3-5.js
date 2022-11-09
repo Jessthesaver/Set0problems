@@ -3,14 +3,14 @@ function CustomObject (x, y) {
     this.b = y;
 }
 
-function printObjProp(obj, boolean=false){
-    if(boolean==false){
+function printObjProp(obj, checkprotoype=false){
+    if(checkprotoype==false){
        let result='';
         for(let i in obj){
             result += i + ' ';
         }
         console.log(result); 
-    }else{
+    }if(checkprotoype==true){
         let result='';
         for(let i in obj){
             if (obj.hasOwnProperty(i) ) {

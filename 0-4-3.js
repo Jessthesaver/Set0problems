@@ -4,7 +4,7 @@ class CustomObject{
             if(typeof(value)=='number'){ 
                 this.#property = value;
             }else{
-                throw 'error'
+                throw new Error('error');
             }
         }
         get prop(){

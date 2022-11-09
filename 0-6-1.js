@@ -4,12 +4,12 @@ class Player{
         this.platform=platform
         this.gamestotry=['Mario bros', 'Sonic']
     }
-    finishedgame(game){
+    finishedGame(game){
         if(this.gamestotry.includes(game)){
             return this.gamestotry=this.gamestotry.filter(item => item !== game)
         }else throw `error, im not playing that game`
     }
-    addrecomendation(game){
+    addRecomendation(game){
         if(this.gamestotry.includes(game)){
             throw 'Im already playing that game'
         }else{this.gamestotry.push(game)}
@@ -38,14 +38,14 @@ class SoulsbornePlayer extends RPGPlayer{
         this.gamestotry.push('Dark Souls', 'Bloodborne')
     }
 
-    ragequit(){
+    rageQuit(){
         this.numberofragequits+=1
     }
 }
 
 let jesus= new SoulsbornePlayer('jesus','ps4')
-jesus.ragequit()
+jesus.rageQuit()
 console.log(jesus)
-jesus.addrecomendation('Sekiro')
-jesus.finishedgame('Mario bros')
+jesus.addRecomendation('Sekiro')
+jesus.finishedGame('Mario bros')
 console.log(jesus)

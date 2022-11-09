@@ -4,7 +4,7 @@ class Image {
             this.width=x;
             this.height=y;
         }else{
-            throw 'Error Parameters dont match the size'
+            throw new Error('Error Parameters dont match the size')
         }
         this.name= name;
         this.data= data;
