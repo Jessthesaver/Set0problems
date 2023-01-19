@@ -31,24 +31,18 @@ const AUSTRALIANHOLIDAYS = {
     '12-25' : `Christmas Day`,
     '12-26' : `Boxing Day`
 }
-let japanesedateexpression= /^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-(\d{4})$/;
-let australiandateexpression = /^(\d{4})-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/i;
+const japanesedateexpression= /^(0?[1-9]|[12][0-9]|3[01])-(0?[1-9]|1[012])-(\d{4})$/;
+const australiandateexpression = /^(\d{4})-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$/i;
 
 function datevalidation(date){
-    
-    if(date.match(australiandateexpression)){
-        let datematch=date.match(australiandateexpression);
-        let day= datematch[3];
-        let month= datematch[2];
-        let year=datematch[1];
-        let holiday=holidaymatcher(`${day}-${month}`, JAPANESEHOLIDAYS);
+    const australian=date.match(australiandateexpression)
+    const japanese =date.match(japanesedateexpression)
+    if(australian!=null){
+        const [,year,month,day]=australian;
+        const holiday=holidaymatcher(`${day}-${month}`, JAPANESEHOLIDAYS);
         return `${day}-${month}-${year} (${holiday}) in Japan`;
-    }
-    if(date.match(japanesedateexpression)){
-        let datematch = date.match(japanesedateexpression);
-        let day= datematch[1];
-        let month= datematch[2];
-        let year=datematch[3];
+    }else if(japanese!=null){
+        const [,day,month,year]=japanese;
         let holiday=holidaymatcher(`${month}-${day}`, AUSTRALIANHOLIDAYS);
         return `${year}-${month}-${day} (${holiday}) in Australia`;
     }else{

@@ -10,7 +10,7 @@ function printObjProp(obj, checkprotoype=false){
             result += i + ' ';
         }
         console.log(result); 
-    }if(checkprotoype==true){
+    }else{
         let result='';
         for(let i in obj){
             if (obj.hasOwnProperty(i) ) {
