@@ -12,9 +12,10 @@
 
 
     <script>
+        'use strict'
         function attributegetter(element){
-            let el=document.querySelector(element);
-            let attnames=el.getAttributeNames();
+            const el=document.querySelector(element);
+            const attnames=el.getAttributeNames();
             let list =[]
             for(i in attnames){
                 list[i] =attnames[i]+': '+ el.getAttribute(attnames[i]);
@@ -23,16 +24,15 @@
         }
 
         function valuegetter(element,attribute){
-            let el= document.querySelector(element);
+            const el= document.querySelector(element);
             return el.getAttribute(attribute);
         };
-        let el=document.querySelector("div");
-        let attnames=el.getAttributeNames();
-        let list = attributegetter("div");
-        let value= valuegetter("div", 'id');
+        const el=document.querySelector("div");
+        const attnames=el.getAttributeNames();
+        const list = attributegetter("div");
+        const value= valuegetter("div", 'id');
         console.log(list);
-        console.log(value);
-        
+        console.log(value);     
     </script>
 </body>
 </html>
