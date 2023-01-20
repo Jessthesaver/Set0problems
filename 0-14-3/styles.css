@@ -14,7 +14,7 @@ body{
     margin: 5px;
 }
 
-image{
+img{
     padding: 5px;
 }
 
@@ -27,8 +27,22 @@ image{
 p{
     width: 50%;
 }
-
-.secondtemplateimg{
-    float: left;
+.extended-article{
+    justify-content: center;
+    background-color: aliceblue;
+    width: auto;
+}
+.extended-article img{
+    align-self: center;
     margin: 5px;
+}
+.big-title{
+    font-size: xx-large;
+}
+.big-article{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+}
+.big-article p{
+    width: auto;
 }
