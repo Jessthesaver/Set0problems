@@ -1,48 +1,57 @@
-a{
-    text-decoration: none;
-    color: black;
+a {
+  text-decoration: none;
+  color: black;
 }
-body{
-    background-color: bisque;
+body {
+  background-color: bisque;
+  counter-reset: my-counter;
 }
-.setimgtext{
-    padding: 5px;
-    display: flex;
-    flex-flow: row wrap;
-    background-color: beige;
-    border-radius: 5px;
-    margin: 5px;
-}
-
-img{
-    padding: 5px;
+.setimgtext {
+  padding: 5px;
+  display: flex;
+  flex-flow: row wrap;
+  background-color: beige;
+  border-radius: 5px;
+  margin: 5px;
 }
 
-.justtext{
-    padding: 5px;
-    width: 50%;
-    flex-direction: column;
+img {
+  padding: 5px;
 }
 
-p{
-    width: 50%;
+body .artnumber:before {
+  content: counter(my-counter);
+  counter-increment: my-counter;
 }
-.extended-article{
-    justify-content: center;
-    background-color: aliceblue;
-    width: auto;
+.artnumber {
+  font-size: xx-large;
 }
-.extended-article img{
-    align-self: center;
-    margin: 5px;
+
+.justtext {
+  padding: 5px;
+  width: 50%;
+  flex-direction: column;
 }
-.big-title{
-    font-size: xx-large;
+
+p {
+  width: 50%;
 }
-.big-article{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: large;
+.extended-article {
+  justify-content: center;
+  background-color: aliceblue;
+  width: auto;
 }
-.big-article p{
-    width: auto;
+.extended-article img {
+  align-self: center;
+  margin: 5px;
+}
+.big-title {
+  font-size: xx-large;
+}
+.big-article {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: large;
+}
+.big-article p {
+  width: auto;
 }
